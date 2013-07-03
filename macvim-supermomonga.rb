@@ -5,7 +5,6 @@ class MacvimSupermomonga < Formula
   homepage 'http://code.google.com/p/macvim/'
   url 'https://github.com/b4winckler/macvim/archive/snapshot-66.tar.gz'
   version '7.3-66.905'
-  patched '754'
   sha1 'd2915438c9405015e5e39099aecbbda20438ce81'
 
   head 'https://github.com/b4winckler/macvim.git', :branch => 'master'
@@ -21,6 +20,7 @@ class MacvimSupermomonga < Formula
   depends_on :xcode # For xcodebuild.
 
   def patches
+    patched = 754
     patch_level = version.to_s.split('.').last.to_i
     {'p0' => (( patched + 1 )..patch_level).map { |i| 'ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.%03d' % i }}
   end
