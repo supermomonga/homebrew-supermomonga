@@ -20,9 +20,14 @@ class MacvimSupermomonga < Formula
   depends_on :xcode # For xcodebuild.
 
   def patches
-    patched = 754
-    patch_level = version.to_s.split('.').last.to_i
-    {'p0' => (( patched + 1 )..patch_level).map { |i| 'ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.%03d' % i }}
+    # shougoware need 885
+    # patched = 754
+    # patch_level = version.to_s.split('.').last.to_i
+    # {'p0' => (( patched + 1 )..patch_level).map { |i| 'ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.%03d' % i }}
+    {
+      '755' => 'ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.755',
+      '756' => 'ftp://ftp.vim.org/pub/vim/patches/7.3/7.3.756'
+    }
   end
 
   def install
